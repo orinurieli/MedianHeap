@@ -3,16 +3,14 @@
 void MaxHeap::Max() {
     if (heap.empty()) {
         // Handle empty heap case
-        std::cout << "MaxHeap is empty." << std::endl;
         return;
     }
 
-    std::cout << "Max: " << heap[0].priority << std::endl;
+    std::cout << heap[0].priority<< " " << heap[0].data << std::endl;
 }
 
 void MaxHeap::CreateEmpty() {
     heap.clear();
-    std::cout << "MaxHeap created empty." << std::endl;
 }
 
 void MaxHeap::FixHeap(int index) {
@@ -30,7 +28,6 @@ void MaxHeap::FixHeap(int index) {
         std::swap(heap[index], heap[largest]);
         FixHeap(largest);
     }
-    std::cout << "Heap fixed at index: " << index << std::endl;
 }
 
 void MaxHeap::Insert(Pair pair) {
@@ -41,14 +38,13 @@ void MaxHeap::Insert(Pair pair) {
         std::swap(heap[index], heap[(index - 1) / 2]);
         index = (index - 1) / 2;
     }
-    std::cout << "Pair inserted: (" << pair.priority << ", " << pair.data << ")" << std::endl;
 }
 
 Pair MaxHeap::DeleteMax() {
     if (heap.empty()) {
         // Handle empty heap case
-        std::cout << "MaxHeap is empty." << std::endl;
-        return Pair{ 0, "", 0, 0 };
+        Pair item;
+        return item;
     }
 
     Pair maxPair = heap[0];
@@ -56,7 +52,6 @@ Pair MaxHeap::DeleteMax() {
     heap.pop_back();
     FixHeap(0);
 
-    std::cout << "Max pair deleted." << std::endl;
     return maxPair;
 }
 
@@ -65,19 +60,12 @@ int MaxHeap::Size() {
 }
 
 Pair MaxHeap::GetMax() {
-    if (heap.empty()) {
-        // Handle empty heap case
-        std::cout << "MaxHeap is empty." << std::endl;
-        return Pair{ 0, "", 0, 0 };
-    }
-
     return heap[0];
 }
 
 int MaxHeap::RemoveByIndex(int index) {
     if (index < 0 || index >= heap.size()) {
         // Handle invalid index case
-        std::cout << "Invalid index." << std::endl;
         return -1;
     }
 
@@ -85,6 +73,5 @@ int MaxHeap::RemoveByIndex(int index) {
     heap.pop_back();
     FixHeap(index);
 
-    std::cout << "Pair removed at index: " << index << std::endl;
     return index;
 }

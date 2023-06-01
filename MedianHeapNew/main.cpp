@@ -5,18 +5,36 @@
 #include "Pair.h"
 #include "MedianHeap.h"
 
+/*
+6
+e
+f 3 hi
+f 2 why
+f 9 bye
+f 7 day
+g
+*/
 int main() {
     MedianHeap medianHeap;
 
     int numOperations;
     int priority;
+    int i = 0;
     std::string value;
 
     std::cin >> numOperations;
-
-    for (int i = 0; i < numOperations; i++) {
+    if (numOperations <= 0) {
+        std::cout << "wrong input" << std::endl;
+        return 0;
+    }
+    while(i < numOperations) {
         std::string operation;
         std::cin >> operation;
+
+        if (i == 0 && operation != "e") {
+            std::cout << "wrong input" << std::endl;
+            return 0;
+        }
 
         if (operation == "e") {
             medianHeap.CreateEmpty();
@@ -47,12 +65,18 @@ int main() {
         }
         else if (operation == "g") {
             Pair median = medianHeap.Median();
-            std::cout << median.priority << std::endl;
+            std::cout << median.priority << " " << median.data << std::endl;
         }
         else {
-            std::cout << "Invalid operation." << std::endl;
+            std::cout << "wrong input" << std::endl;
             return 0;
         }
+        i++;
+    }
+    
+    if (i > numOperations) {
+        std::cout << "wrong input" << std::endl;
+        return 0;
     }
 
     return 0;
