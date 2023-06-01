@@ -50,7 +50,6 @@ void MedianHeap::Min() {
 
 void MedianHeap::DeleteMin() {
     lowMinHeap.DeleteMin();
-    std::cout << "Minimum pair deleted." << std::endl;
 }
 
 void MedianHeap::CreateEmpty() {
@@ -58,24 +57,20 @@ void MedianHeap::CreateEmpty() {
     lowMaxHeap.CreateEmpty();
     highMinHeap.CreateEmpty();
     lowMinHeap.CreateEmpty();
-    std::cout << "Heap created empty." << std::endl;
 }
 
 Pair MedianHeap::Median() {
     if (lowMaxHeap.Size() > highMaxHeap.Size()) {
         Pair median = lowMaxHeap.GetMax();
-        std::cout << "Median pair: (" << median.priority << ", " << median.data << ")" << std::endl;
         return median;
     }
     else if (highMinHeap.Size() > lowMinHeap.Size()) {
         Pair median = highMinHeap.GetMin();
-        std::cout << "Median pair: (" << median.priority << ", " << median.data << ")" << std::endl;
         return median;
     }
     else {
         // If the sizes are equal, return the maximum from the lowMaxHeap
         Pair median = lowMaxHeap.GetMax();
-        std::cout << "Median pair: (" << median.priority << ", " << median.data << ")" << std::endl;
         return median;
     }
 }

@@ -67,7 +67,6 @@ int MaxHeap::Size() {
 Pair MaxHeap::GetMax() {
     if (heap.empty()) {
         // Handle empty heap case
-        std::cout << "MaxHeap is empty." << std::endl;
         return Pair{ 0, "", 0, 0 };
     }
 
@@ -77,7 +76,6 @@ Pair MaxHeap::GetMax() {
 int MaxHeap::RemoveByIndex(int index) {
     if (index < 0 || index >= heap.size()) {
         // Handle invalid index case
-        std::cout << "Invalid index." << std::endl;
         return -1;
     }
 
@@ -85,6 +83,5 @@ int MaxHeap::RemoveByIndex(int index) {
     heap.pop_back();
     FixHeap(index);
 
-    std::cout << "Pair removed at index: " << index << std::endl;
     return index;
 }

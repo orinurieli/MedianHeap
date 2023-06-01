@@ -59,7 +59,7 @@ int main() {
             std::cout << median.priority << std::endl;
         }
         else {
-            std::cout << "Invalid operation." << std::endl;
+            std::cout << "wrong input." << std::endl;
             return 0;
         }
     }

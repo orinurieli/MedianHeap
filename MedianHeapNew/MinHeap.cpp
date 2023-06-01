@@ -67,7 +67,6 @@ int MinHeap::Size() {
 Pair MinHeap::GetMin() {
     if (heap.empty()) {
         // Handle empty heap case
-        std::cout << "MinHeap is empty." << std::endl;
         return Pair{ 0, "", 0, 0 };
     }
 
@@ -77,7 +76,6 @@ Pair MinHeap::GetMin() {
 int MinHeap::RemoveByIndex(int index) {
     if (index < 0 || index >= heap.size()) {
         // Handle invalid index case
-        std::cout << "Invalid index." << std::endl;
         return -1;
     }
 
@@ -85,6 +83,5 @@ int MinHeap::RemoveByIndex(int index) {
     heap.pop_back();
     FixHeap(index);
 
-    std::cout << "Pair removed at index: " << index << std::endl;
     return index;
 }
