@@ -7,12 +7,11 @@ void MinHeap::Min() {
         return;
     }
 
-    std::cout << "Min: " << heap[0].priority << std::endl;
+    std::cout << heap[0].priority << " " << heap[0].data << std::endl;
 }
 
 void MinHeap::CreateEmpty() {
     heap.clear();
-    std::cout << "MinHeap created empty." << std::endl;
 }
 
 void MinHeap::FixHeap(int index) {
@@ -30,7 +29,6 @@ void MinHeap::FixHeap(int index) {
         std::swap(heap[index], heap[smallest]);
         FixHeap(smallest);
     }
-    std::cout << "Heap fixed at index: " << index << std::endl;
 }
 
 void MinHeap::Insert(Pair pair) {
@@ -41,13 +39,11 @@ void MinHeap::Insert(Pair pair) {
         std::swap(heap[index], heap[(index - 1) / 2]);
         index = (index - 1) / 2;
     }
-    std::cout << "Pair inserted: (" << pair.priority << ", " << pair.data << ")" << std::endl;
 }
 
 Pair MinHeap::DeleteMin() {
     if (heap.empty()) {
         // Handle empty heap case
-        std::cout << "MinHeap is empty." << std::endl;
         return Pair{ 0, "", 0, 0 };
     }
 
@@ -56,7 +52,6 @@ Pair MinHeap::DeleteMin() {
     heap.pop_back();
     FixHeap(0);
 
-    std::cout << "Min pair deleted." << std::endl;
     return minPair;
 }
 
