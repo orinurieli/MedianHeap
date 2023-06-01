@@ -27,7 +27,7 @@ void MedianHeap::Insert(Pair pair) {
 
             removedPair.indexInOtherHeap = highMaxHeap.RemoveByIndex(removedPair.indexInOtherHeap);
             lowMaxHeap.Insert(removedPair);
-            std::cout << "Pair moved from highMinHeap to lowMinHeap." << endl;
+            //std::cout << "Pair moved from highMinHeap to lowMinHeap." << endl;
         }
     }
     else {
@@ -51,36 +51,6 @@ void MedianHeap::Insert(Pair pair) {
     //std::cout << "Pair inserted: (" << pair.priority << ", " << pair.data << ")" << std::endl;
 }
 
-//void MedianHeap::Insert(Pair pair) {
-//    pair.indexInOtherHeap = -1; // Initialize the indexInOtherHeap to -1
-//
-//    cout << "median priority: " << Median().priority << endl;
-//    if (pair.priority <= Median().priority) {
-//        lowMaxHeap.Insert(pair);
-//        lowMinHeap.Insert(pair);
-//
-//        if (lowMaxHeap.Size() > highMaxHeap.Size()) {
-//            Pair removedPair = lowMaxHeap.DeleteMax();
-//            highMaxHeap.Insert(removedPair);
-//
-//            removedPair.indexInOtherHeap = lowMinHeap.RemoveByIndex(removedPair.currIndex);
-//            highMinHeap.Insert(removedPair);
-//        }
-//    }
-//    else {
-//        highMaxHeap.Insert(pair);
-//        highMinHeap.Insert(pair);
-//
-//        if (highMinHeap.Size() > lowMinHeap.Size()) {
-//            Pair removedPair = highMinHeap.DeleteMin();
-//            lowMinHeap.Insert(removedPair);
-//
-//            removedPair.indexInOtherHeap = highMaxHeap.RemoveByIndex(removedPair.currIndex);
-//            lowMaxHeap.Insert(removedPair);
-//        }
-//    }
-//    std::cout << "Pair inserted: (" << pair.priority << ", " << pair.data << ")" << std::endl;
-//}
 
 MedianHeap::MedianHeap() {
     // Constructor

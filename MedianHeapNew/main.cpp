@@ -74,7 +74,7 @@ int main() {
         i++;
     }
     
-    if (i >= numOperations) {
+    if (i > numOperations) {
         std::cout << "wrong input" << std::endl;
         return 0;
     }
