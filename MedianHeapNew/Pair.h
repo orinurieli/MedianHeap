@@ -12,7 +12,7 @@ typedef struct pair
 {
 public:
     int priority;
-    const string& value;
+    std::string data;
     int currIndex;
     int indexInOtherHeap;
 }Pair;

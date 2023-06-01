@@ -5,7 +5,6 @@
 #include "Pair.h"
 #include "MedianHeap.h"
 
-
 int main() {
     MedianHeap medianHeap;
 
@@ -19,34 +18,36 @@ int main() {
         std::string operation;
         std::cin >> operation;
 
-        // todo: handle case e after e
-        if (operation == "e")
+        if (operation == "e") {
             medianHeap.CreateEmpty();
-        else if (operation == "a")
-        {
+        }
+        else if (operation == "a") {
             medianHeap.Max();
         }
-        else if (operation == "b")
-        {
+        else if (operation == "b") {
             medianHeap.DeleteMax();
         }
-        else if (operation == "c")
-        {
+        else if (operation == "c") {
             medianHeap.Min();
         }
-        else if (operation == "d")
-        {
+        else if (operation == "d") {
             medianHeap.DeleteMin();
         }
         else if (operation == "f") {
             std::cin >> priority;
             std::getline(std::cin >> std::ws, value);
 
-            medianHeap.Insert(value, priority);
+            Pair pair;
+            pair.priority = priority;
+            pair.data = value;
+            pair.currIndex = 0;
+            pair.indexInOtherHeap = 0;
+
+            medianHeap.Insert(pair);
         }
         else if (operation == "g") {
-            Pair* median = medianHeap.Median();
-            cout << median->priority;
+            Pair median = medianHeap.Median();
+            std::cout << median.priority << std::endl;
         }
         else {
             std::cout << "Invalid operation." << std::endl;
