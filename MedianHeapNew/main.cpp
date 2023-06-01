@@ -5,6 +5,15 @@
 #include "Pair.h"
 #include "MedianHeap.h"
 
+/*
+6
+e
+f 3 hi
+f 2 why
+f 9 bye
+f 7 day
+g
+*/
 int main() {
     MedianHeap medianHeap;
 
